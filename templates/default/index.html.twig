@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Message Board
+{% endblock %}
+
+{% block body %}
+	<h1>Message History</h1>
+	<ul>
+		{% for message in messages %}
+			<li>
+				<b>{{ message.user }}</b>:
+				{{ message.text }}
+			</li>
+		{% else %}
+			<li>No messages yet.</li>
+		{% endfor %}
+	</ul>
+	<a href="{{ path('create_new_message') }}">Create New Message</a>
+{% endblock %}
